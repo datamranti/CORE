@@ -1,0 +1,8 @@
+{
+  "name": "mranti-core",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node --check src/config.js && node --check src/search.js && node --check src/calendar.js && node --check src/crm.js && node --check src/contacts.js && node --check src/auth.js"
+  }
+}
