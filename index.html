@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZJX4FD2QB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XZJX4FD2QB');
+</script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MRANTI CORE</title>
+<link rel="stylesheet" href="src/styles.css">
+<meta content="#2563eb" name="theme-color"/>
+<meta content="MRANTI CORE workspace for context, meetings and relationship intelligence." name="description"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="MRANTI CORE" name="apple-mobile-web-app-title"/>
+<link href="site.webmanifest?v=9" rel="manifest"/>
+<link href="favicon-48x48.png?v=9" rel="icon" sizes="48x48" type="image/png"/>
+<link href="favicon-32x32.png?v=9" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16x16.png?v=9" rel="icon" sizes="16x16" type="image/png"/>
+<link href="favicon.ico?v=9" rel="shortcut icon"/>
+<link href="apple-touch-icon.png?v=9" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="#eaf3ff" name="msapplication-TileColor"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+</head>
+<body>
+<!-- MRANTI CORE: signed-out and signed-in relationship intelligence workspace. -->
+<!-- PREMIUM LANDING SCREEN V8 -->
+<div id="loginScreen">
+<main aria-label="MRANTI CORE sign in" class="login-shell">
+<section class="login-story-panel">
+<div class="login-brand-row">
+<div class="login-brand-lockup" aria-label="MRANTI CORE">
+<img class="login-mranti-logo" src="https://cdn.prod.website-files.com/6719e3902a71ea8154ba371d/6996a2c470a01e3f32ffa080_M30.png" alt="MRANTI 30 Years"/>
+<span class="login-brand-divider" aria-hidden="true"></span>
+<img class="login-brand-symbol" src="crm-network-mark.png?v=9" alt="CORE" onerror="this.onerror=null;this.src='favicon-48x48.png?v=9'"/>
+<div class="login-brand-copy"><div class="login-brand-name">CORE</div><div class="login-brand-product">Relationship Intelligence</div></div>
+</div>
+</div>
+<div class="login-hero-copy">
+<div class="login-eyebrow">Relationship intelligence</div>
+<h1 class="login-hero-title"><span class="title-line">Relationships</span><span class="title-line">become</span><span class="title-accent">intelligence.</span></h1>
+<p class="login-hero-subtitle">Capture meetings, contacts, business cards and supporting documents in one connected workspace—then understand who MRANTI is engaging with and why.</p>
+</div>
+</section>
+<section class="login-access-panel">
+<div class="login-card">
+<h2 class="login-title">Welcome back</h2>
+<p class="login-sub">Sign in with your MRANTI Google Workspace account to continue.</p>
+<div class="error-msg" id="errorMsg" role="alert" aria-live="polite"></div>
+<button class="google-btn" onclick="signIn()" type="button"><svg class="google-mark" aria-hidden="true" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.52h3.24c1.9-1.75 2.98-4.33 2.98-7.37Z"/><path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.62-2.4l-3.24-2.52c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.13H3.04v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.39 13.91A6 6 0 0 1 6.08 12c0-.66.11-1.3.31-1.91v-2.6H3.04A10 10 0 0 0 2 12c0 1.62.39 3.15 1.04 4.51l3.35-2.6Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.63 9.63 0 0 0 12 2a10 10 0 0 0-8.96 5.49l3.35 2.6C7.18 7.72 9.39 5.96 12 5.96Z"/></svg><span>Continue with Google</span></button>
+<div class="login-card-divider"></div>
+<div class="login-trust-list">
+<div class="login-trust-item"><span class="login-trust-icon trust-shield"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 5 6v5.2c0 4.4 2.8 7.6 7 9.3 4.2-1.7 7-4.9 7-9.3V6l-7-3Z"/></svg></span><span>Authorised <strong>@mranti.my</strong> accounts only.</span></div>
+<div class="login-trust-item"><span class="login-trust-icon trust-lock"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span>Access follows your organisation account and approved Workspace permissions.</span></div>
+</div>
+</div>
+<div class="mobile-login-footer">© 2026 MRANTI. All rights reserved.</div>
+</section>
+<section aria-label="MRANTI CORE capabilities" class="login-benefit-band">
+<article class="login-benefit-card"><div aria-hidden="true" class="login-benefit-number benefit-capture">01</div><div class="login-benefit-title">Capture</div><div class="login-benefit-copy">Meetings, contacts, business cards and action items.</div></article>
+<article class="login-benefit-card"><div aria-hidden="true" class="login-benefit-number benefit-connect">02</div><div class="login-benefit-title">Connect</div><div class="login-benefit-copy">Staff, companies, documents and relationship history.</div></article>
+<article class="login-benefit-card"><div aria-hidden="true" class="login-benefit-number benefit-understand">03</div><div class="login-benefit-title">Understand</div><div class="login-benefit-copy">Searchable context and relationship intelligence.</div></article>
+<div class="login-footer-row"><span>© 2026 MRANTI. All rights reserved.</span></div>
+</section>
+</main>
+</div>
+<!-- AUTHENTICATED MRANTI CORE SYSTEM -->
+<div aria-hidden="true" id="appScreen">
+<div class="system-shell">
+<header class="system-sidebar modern-navbar" id="systemSidebar">
+<div class="modern-navbar-inner">
+<button aria-label="Open navigation" class="system-mobile-menu" onclick="systemToggleSidebar()" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg></button>
+<button aria-label="MRANTI CORE dashboard" class="system-brand modern-brand" onclick="systemNavigate('dashboard')" type="button">
+<img class="system-brand-logo" src="https://cdn.prod.website-files.com/6719e3902a71ea8154ba371d/6996a2c470a01e3f32ffa080_M30.png" alt="MRANTI 30 Years"/>
+<span aria-hidden="true" class="modern-brand-divider"></span>
+<span aria-label="CORE Relationship Intelligence" class="system-core-brand">
+<img class="system-app-logo" src="crm-network-mark.png?v=9" alt="" aria-hidden="true"/>
+<span class="system-core-name">CORE</span>
+</span>
+</button>
+<nav aria-label="MRANTI CORE navigation" class="system-nav modern-nav">
+<button class="system-nav-item" data-route="dashboard" onclick="systemNavigate('dashboard')"><span class="system-nav-title">Dashboard</span></button>
+<button class="system-nav-item" data-route="contacts" onclick="systemNavigate('contacts')"><span class="system-nav-title">Context</span></button>
+<button class="system-nav-item" data-route="my-records" onclick="systemNavigate('my-records')"><span class="system-nav-title">My Entries</span><span class="modern-nav-badge" id="systemActionBadge">0</span></button>
+<button class="system-nav-item" data-route="relationships" onclick="systemNavigate('relationships')"><span class="system-nav-title">Relationships</span></button>
+</nav>
+<div class="modern-navbar-actions">
+<button class="modern-log-button" onclick="openManualModal()" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg><span>Log meeting</span></button>
+<button class="system-user-button modern-user-button" onclick="systemToggleUserMenu()" type="button">
+<img alt="" class="user-avatar" id="userPhoto" onerror="this.style.display='none';document.getElementById('userInitial').style.display='flex'" src=""/>
+<span class="user-avatar-placeholder" id="userInitial" style="display:none"></span>
+<span class="modern-user-copy"><span id="userName"></span><small id="userEmail"></small></span>
+</button>
+<span hidden="" id="systemTopInitial"></span><span hidden="" id="systemTopUserName"></span>
+<span hidden="" id="systemTopTitle">Dashboard</span><span hidden="" id="systemTopSubtitle"></span>
+</div>
+</div>
+</header>
+<div class="system-sidebar-overlay" id="systemSidebarOverlay" onclick="systemCloseSidebar()"></div>
+<div class="system-main">
+<div class="system-user-menu" id="systemUserMenu">
+<div class="system-user-menu-head"><div class="system-user-menu-name" id="systemMenuName"></div><div class="system-user-menu-email" id="systemMenuEmail"></div></div>
+<button class="system-user-menu-item" onclick="systemNavigate('profile')">My Profile &amp; Preferences</button>
+<button class="system-user-menu-item" onclick="systemNavigate('my-records')">My Entries</button>
+<button class="system-user-menu-item" onclick="systemNavigate('help')">Help &amp; Support</button>
+<button class="system-user-menu-item danger" onclick="doSignOut()">Sign Out</button>
+</div>
+<main class="system-content">
+<div class="system-content-inner">
+<section class="system-page" data-page="dashboard" id="pageDashboard">
+<div class="dashboard-hero">
+<div>
+<div class="dashboard-welcome-label">CORE</div>
+<h1 class="dashboard-welcome-title" id="welcomeMsg">Welcome</h1>
+<p class="dashboard-welcome-copy">A clear view of meetings, context and relationship activity.</p>
+</div>
+</div>
+<div class="system-kpi-grid dashboard-summary-grid">
+<article class="system-card dashboard-visual-kpi meetings-kpi-card" id="dashboardMeetingsCard">
+<div class="visual-kpi-heading">
+<div class="visual-kpi-title-row">
+<div><div class="visual-kpi-label">Meetings this month</div><div class="visual-kpi-context" id="dashboardMeetingsTrend">Connect Calendar to populate activity</div></div>
+</div>
+<div class="visual-kpi-value" id="dashboardMeetingsMonth">0</div>
+</div>
+<div aria-label="Weekly meeting distribution" class="weekly-bars" id="dashboardMeetingsWeeklyBars" role="group"></div>
+<button aria-expanded="false" class="visual-kpi-link" id="dashboardMeetingsToggle" onclick="dashboardViewMeetings()" type="button">Show details <span aria-hidden="true">↓</span></button>
+<div aria-hidden="true" class="dashboard-inline-detail" id="dashboardMeetingsDetails"></div>
+</article>
+<article class="system-card dashboard-visual-kpi organisations-kpi-card" id="dashboardOrganisationsCard">
+<div class="visual-kpi-heading">
+<div class="visual-kpi-title-row">
+<div><div class="visual-kpi-label">Organisations engaged</div><div class="visual-kpi-context">New and returning relationships this month</div></div>
+</div>
+<div class="visual-kpi-value" id="dashboardCompaniesCount">0</div>
+</div>
+<div class="organisation-progress" id="dashboardOrganisationBar" role="img" aria-label="No organisations engaged this month">
+<div class="organisation-progress-track">
+<span class="organisation-progress-segment new" id="dashboardOrganisationNewSegment"></span>
+<span class="organisation-progress-segment returning" id="dashboardOrganisationReturningSegment"></span>
+</div>
+<div class="organisation-legend">
+<div><span class="legend-dot new"></span><span>New</span><strong id="dashboardOrgNewCount">0</strong></div>
+<div><span class="legend-dot returning"></span><span>Returning</span><strong id="dashboardOrgReturningCount">0</strong></div>
+</div>
+</div>
+<button aria-expanded="false" class="visual-kpi-link" id="dashboardOrganisationsToggle" onclick="dashboardViewOrganisations()" type="button">Show details <span aria-hidden="true">↓</span></button>
+<div aria-hidden="true" class="dashboard-inline-detail" id="dashboardOrganisationsDetails"></div>
+</article>
+</div>
+<div class="dashboard-workspace">
+<section class="system-card dashboard-calendar-card" id="dashboardCalendarSection">
+<div class="calendar-panel">
+<div class="calendar-panel-top">
+<div><div class="section-eyebrow">Google Calendar</div><div class="section-title">Your Meetings</div><div class="section-subtitle">Select a day to review meetings and log relationship details.</div></div>
+<div class="calendar-panel-actions">
+<div aria-label="Calendar view" class="calendar-view-toggle" role="group">
+<button class="calendar-view-btn" id="calendarViewWeekBtn" onclick="setCalendarView('week', null, event)" type="button">Week</button>
+<button class="calendar-view-btn active" id="calendarViewMonthBtn" onclick="setCalendarView('month', null, event)" type="button">Month</button>
+</div>
+<button class="sync-btn" id="calendarSyncBtn" onclick="syncCalendar()" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="17" rx="3"></rect><path d="M3 10h18"></path><path d="M16.5 14.5a3.5 3.5 0 1 1-1 2.45"></path><path d="M16.5 12.5v2h-2"></path></svg><span id="calendarSyncLabel">Connect Calendar</span></button>
+</div>
+</div>
+<div class="calendar-section" id="dashboardCalendarView">
+<div class="cal-nav">
+<button aria-label="Previous month" class="cal-nav-btn" id="calendarPreviousBtn" onclick="changeMonth(-1)">‹</button>
+<div class="cal-month-label" id="calMonthLabel">Month</div>
+<button aria-label="Next month" class="cal-nav-btn" id="calendarNextBtn" onclick="changeMonth(1)">›</button>
+<button class="cal-today-btn" onclick="goToToday()">Today</button>
+</div>
+<div class="calendar-status" id="calendarStatus">Connect Calendar to load your meetings.</div>
+<div class="cal-weekday-row"><div class="cal-weekday">Sun</div><div class="cal-weekday">Mon</div><div class="cal-weekday">Tue</div><div class="cal-weekday">Wed</div><div class="cal-weekday">Thu</div><div class="cal-weekday">Fri</div><div class="cal-weekday">Sat</div></div>
+<div class="cal-grid" id="calGrid"></div>
+</div>
+</div>
+</section>
+<aside class="dashboard-side-stack">
+<section class="system-card dashboard-side-card dashboard-recent-card">
+<div class="dashboard-card-head"><div><div class="dashboard-card-title">Recent Meetings</div><div class="dashboard-card-subtitle">Your latest meetings and relationship updates</div></div><button class="dashboard-card-link" onclick="systemNavigate('contacts')" type="button">View all meetings →</button></div>
+<div class="dashboard-activity-list dashboard-recent-list" id="dashboardRecentActivity"><div class="dashboard-empty">Loading recent meetings…</div></div>
+</section>
+</aside>
+</div>
+</section>
+<section class="system-page contact-intel-page" data-page="contacts" id="pageContacts">
+  <header class="dashboard-hero contact-dashboard-hero">
+    <div>
+      <div class="dashboard-welcome-label">CORE</div>
+      <h1 class="dashboard-welcome-title">Context</h1>
+      <p class="dashboard-welcome-copy">Prepare for stakeholder meetings with complete MRANTI relationship context.</p>
+    </div>
+  </header>
+
+  <div class="contact-intel-toolbar" aria-label="Context search and filters">
+    <label class="contact-intel-search-wrap" aria-label="Search context">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
+      <input class="system-input" id="crmContactsSearch" oninput="crmFilterRecords()" placeholder="Search name, company, email, phone or meeting..." type="search"/>
+    </label>
+    <div class="contact-intel-toolbar-actions">
+      <label class="contact-intel-sort-label" for="crmContactsSort">Sort by:</label>
+      <select class="system-select contact-intel-sort" id="crmContactsSort" onchange="crmFilterRecords()">
+        <option value="engaged-desc">Last engaged (desc)</option>
+        <option value="engaged-asc">Last engaged (asc)</option>
+        <option value="name-asc">Name (A–Z)</option>
+        <option value="name-desc">Name (Z–A)</option>
+        <option value="company-asc">Organisation (A–Z)</option>
+      </select>
+        <div class="contact-intel-filter-anchor">
+          <button class="system-btn contact-intel-filter-btn" id="crmContactFilterButton" type="button" onclick="crmToggleContactFilters(event)" aria-expanded="false">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"></path></svg><span>Filter</span>
+          </button>
+          <div class="contact-intel-filter-backdrop" id="crmContactFilterBackdrop" onclick="crmHandleContactFilterBackdrop(event)" aria-hidden="true"></div>
+          <div class="contact-intel-filter-panel" id="crmContactFilterPanel" role="dialog" aria-modal="true" aria-labelledby="crmContactFilterTitle">
+            <div class="contact-intel-filter-title" id="crmContactFilterTitle">Filter context</div>
+            <label><input id="crmFilterHasActions" type="checkbox" onchange="crmHandleContactFilterChange()"> Has open action items</label>
+            <label><input id="crmFilterHasDocuments" type="checkbox" onchange="crmHandleContactFilterChange()"> Has linked documents</label>
+            <div class="contact-intel-filter-actions">
+              <button class="contact-intel-filter-reset" type="button" onclick="crmResetContactFilterDraft()">Reset filters</button>
+              <button class="contact-intel-filter-apply" type="button" onclick="crmApplyContactFilters(event)">Apply filters</button>
+              <button class="contact-intel-filter-close" type="button" onclick="crmCancelContactFilters(event)">Cancel</button>
+            </div>
+          </div>
+        </div>
+      <button class="system-btn contact-intel-clear" onclick="crmClearSearch()" type="button">Clear</button>
+      <button class="system-btn contact-intel-share core-share-button core-icon-action" id="shareContextButton" onclick="shareCoreView('contacts', this)" type="button" aria-label="Share selected Context as PDF" title="Share context" data-tooltip="Share context">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"></path></svg>
+        <span class="sr-only">Share context</span>
+      </button>
+      <button class="system-btn contact-intel-download core-icon-action" id="downloadContextButton" onclick="downloadCoreContextPdf(this)" type="button" aria-label="Download selected Context as PDF" title="Download PDF" data-tooltip="Download PDF">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4v11"></path><path d="m7 11 5 5 5-5"></path><path d="M5 20h14"></path></svg>
+        <span class="sr-only">Download PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="crm-contacts-banner info" id="crmContactsBanner" role="status" aria-live="polite"></div>
+
+  <div class="contact-intel-workspace">
+    <aside class="contact-directory-panel system-card" aria-label="Context directory">
+      <div class="contact-directory-head">
+        <span>ALL CONTEXT</span>
+        <span id="crmDirectoryCount">0 relationships</span>
+      </div>
+      <div class="contact-directory-list" id="crmContactsList">
+        <div class="crm-contacts-empty">Loading CORE context…</div>
+      </div>
+      <button class="contact-directory-load" id="crmLoadMoreContacts" onclick="crmLoadMoreContacts()" type="button" style="display:none;">Load more context <span aria-hidden="true">↓</span></button>
+    </aside>
+
+    <section class="contact-workspace-panel system-card" aria-label="Selected relationship context">
+      <button class="contact-mobile-back" onclick="crmMobileBackToContacts()" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg>
+        <span>Back to context</span>
+      </button>
+      <div class="contact-identity-header" id="crmContactIdentityHeader">
+        <div class="contact-identity-main">
+          <div class="contact-identity-avatar" id="crmContactAvatar">—</div>
+          <div class="contact-identity-copy">
+            <h2 id="crmContactName">Select a contact</h2>
+            <div class="contact-identity-org" id="crmContactOrganisation"></div>
+            <div class="contact-identity-role" id="crmContactRole"></div>
+            <div class="contact-identity-meta" id="crmContactMeta"></div>
+          </div>
+        </div>
+        <div class="contact-identity-side">
+          <div class="contact-identity-stats">
+            <span id="crmContactMeetingCount">0 meetings</span><span aria-hidden="true">•</span><span id="crmContactLastEngaged">Last engaged —</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-tabbar" role="tablist" aria-label="Context workspace views" onkeydown="crmContactTabKeydown(event)">
+        <button aria-controls="crmWorkspaceContent" aria-selected="true" class="contact-tab active" data-tab="overview" id="crmTabOverview" onclick="crmSwitchContactTab('overview')" role="tab" type="button">Overview</button>
+        <button aria-controls="crmWorkspaceContent" aria-selected="false" class="contact-tab" data-tab="history" id="crmTabHistory" onclick="crmSwitchContactTab('history')" role="tab" type="button">Relationship History</button>
+        <button aria-controls="crmWorkspaceContent" aria-selected="false" class="contact-tab" data-tab="actions" id="crmTabActions" onclick="crmSwitchContactTab('actions')" role="tab" type="button">Action Items</button>
+        <button aria-controls="crmWorkspaceContent" aria-selected="false" class="contact-tab" data-tab="documents" id="crmTabDocuments" onclick="crmSwitchContactTab('documents')" role="tab" type="button">Documents</button>
+        <button aria-controls="crmWorkspaceContent" aria-selected="false" class="contact-tab" data-tab="record" id="crmTabRecord" onclick="crmSwitchContactTab('record')" role="tab" type="button">Record Info</button>
+      </div>
+
+      <div class="contact-workspace-content" id="crmWorkspaceContent" role="tabpanel" aria-live="polite">
+        <div class="contact-empty-state">Select a contact to review relationship intelligence.</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="crm-legacy-compat" aria-hidden="true">
+    <div id="crmDetailName"></div><div id="crmDetailCompany"></div><div id="crmDetailEmail"></div><div id="crmDetailPhone"></div><div id="crmDetailJobTitle"></div><div id="crmDetailMeetingTitle"></div><div id="crmDetailMeetingDate"></div><div id="crmDetailReason"></div><div id="crmDetailAttendees"></div><div id="crmDetailNotes"></div><div id="crmDetailActionItems"></div><div id="crmDetailUploader"></div><div id="crmDetailUploaderEmail"></div><div id="crmDetailStatus"></div><div id="crmDetailUpdated"></div><div id="crmOwnerNotice"></div><div id="crmDocumentSection"></div><div id="crmDetailDocuments"></div><div id="crmLegacyNote"></div>
+  </div>
+</section>
+
+<section class="system-page" data-page="my-records" id="pageMyRecords">
+<header class="dashboard-hero my-records-page-hero">
+  <div class="standard-page-intro-row">
+    <div class="standard-page-intro-copy">
+      <div class="dashboard-welcome-label">CORE</div>
+      <h1 class="dashboard-welcome-title">My Entries</h1>
+      <p class="dashboard-welcome-copy">Manage only the records uploaded using your MRANTI account.</p>
+      <div class="standard-page-supporting-meta">Last activity: <strong id="myLastUpdated">—</strong></div>
+    </div>
+  </div>
+</header>
+
+<div class="my-records-workspace-v2">
+  <aside class="system-card my-records-directory-v2" aria-label="My Records directory">
+    <div class="my-directory-head-v2">
+      <span class="my-directory-title-v2">MY RECORDS</span>
+      <span class="my-directory-count-v2" id="myRecordsCount">0 records</span>
+    </div>
+    <div class="my-directory-controls-v2">
+      <label class="my-directory-search-v2" for="myRecordsSearch">
+        <svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input id="myRecordsSearch" oninput="myFilterRecords()" placeholder="Search meetings, contacts or keywords..." type="search"/>
+      </label>
+      <div class="my-directory-sort-v2">
+        <label for="myRecordsSort">Sort by</label>
+        <select class="my-directory-select-v2" id="myRecordsSort" onchange="myFilterRecords()" aria-label="Sort My Records">
+          <option value="meeting-desc" selected>Meeting date — newest first</option>
+          <option value="meeting-asc">Meeting date — oldest first</option>
+          <option value="updated-desc">Last updated — newest first</option>
+          <option value="title-asc">Meeting title — A to Z</option>
+          <option value="contact-asc">Contact name — A to Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="my-records-list-v2" id="myRecordsList"><div class="my-records-empty-v2">Loading your CORE entries…</div></div>
+  </aside>
+
+  <section class="system-card my-record-workspace-v2" aria-label="Selected meeting record workspace">
+    <div class="my-record-header-v2">
+      <div class="my-record-heading-v2">
+        <div class="my-record-eyebrow-v2">MEETING RECORD</div>
+        <h2 id="myRecordTitle">Select a meeting record</h2>
+        <div class="my-record-meta-v2" id="myRecordMeta"></div>
+        <div class="my-record-provenance-v2">
+          <span id="myRecordUploader"></span>
+          <span id="myRecordUpdated"></span>
+        </div>
+        <div class="my-record-permission-v2" id="myRecordPermission" hidden></div>
+      </div>
+      <div class="my-record-actions-v2" id="myRecordActions">
+        <button aria-label="Edit record" class="system-btn my-edit-icon-btn-v2" disabled id="myEditBtn" onclick="myOpenEdit()" title="Edit record" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg><span>Edit</span></button>
+        <button class="system-btn primary" id="mySaveBtn" onclick="mySaveChanges()" style="display:none" type="button"><span>Save Changes</span></button>
+        <button class="system-btn subtle" id="myCancelBtn" onclick="myCancelEdit()" style="display:none" type="button"><span>Cancel</span></button>
+        <button class="system-btn danger" disabled id="myArchiveBtn" onclick="myArchiveSelected()" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 6h18"></path><path d="M5 6v14h14V6"></path><path d="M8 10h8"></path></svg><span>Archive</span></button>
+        <button class="system-btn success" id="myRestoreBtn" onclick="myRestoreSelected()" style="display:none" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg><span>Restore</span></button>
+      </div>
+    </div>
+
+    <div class="my-record-tabs-v2" id="myRecordTabs" role="tablist" aria-label="Meeting record sections">
+      <button aria-controls="myRecordTabContent" aria-selected="true" class="active" data-my-tab="details" id="myTabDetails" onclick="mySwitchRecordTab('details')" onkeydown="myRecordTabKeydown(event)" role="tab" type="button">Details</button>
+      <button aria-controls="myRecordTabContent" aria-selected="false" data-my-tab="notes" id="myTabNotes" onclick="mySwitchRecordTab('notes')" onkeydown="myRecordTabKeydown(event)" role="tab" type="button">Meeting Notes</button>
+      <button aria-controls="myRecordTabContent" aria-selected="false" data-my-tab="actions" id="myTabActions" onclick="mySwitchRecordTab('actions')" onkeydown="myRecordTabKeydown(event)" role="tab" type="button">Action Items</button>
+      <button aria-controls="myRecordTabContent" aria-selected="false" data-my-tab="documents" id="myTabDocuments" onclick="mySwitchRecordTab('documents')" onkeydown="myRecordTabKeydown(event)" role="tab" type="button">Documents</button>
+      <button aria-controls="myRecordTabContent" aria-selected="false" data-my-tab="history" id="myTabHistory" onclick="mySwitchRecordTab('history')" onkeydown="myRecordTabKeydown(event)" role="tab" type="button">History</button>
+    </div>
+
+    <div class="my-record-tab-content-v2" id="myRecordTabContent" role="tabpanel" aria-live="polite">
+      <div class="my-record-no-selection-v2"><strong>Select a meeting record</strong><span>Choose a record from My Records to review or manage its details.</span></div>
+    </div>
+  </section>
+</div>
+</section>
+<section class="system-page relationship-page" data-page="relationships" id="pageRelationships">
+<header class="dashboard-hero relationship-page-hero">
+  <div>
+    <div class="dashboard-welcome-label">CORE</div>
+    <h1 class="dashboard-welcome-title">Relationship Intelligence</h1>
+    <p class="dashboard-welcome-copy">Explore who MRANTI has engaged, why meetings happened and how relationships connect.</p>
+  </div>
+</header>
+<div class="relationship-intel-summary" aria-label="Relationship Intelligence summary">
+  <div class="relationship-intel-metrics">
+    <div class="relationship-intel-metric"><span>Relationships</span><strong id="relationshipMetricPeople">—</strong></div>
+    <div class="relationship-intel-metric"><span>Organisations</span><strong id="relationshipMetricOrganisations">—</strong></div>
+    <div class="relationship-intel-metric"><span>Meetings</span><strong id="relationshipMetricMeetings">—</strong></div>
+    <div class="relationship-intel-metric"><span>Open actions</span><strong id="relationshipMetricActions">—</strong></div>
+  </div>
+  <div class="relationship-intel-actions" aria-label="Relationship Intelligence actions">
+    <button class="system-btn core-icon-action relationship-icon-action" id="shareRelationshipsButton" onclick="shareCoreView('relationships', this)" type="button" aria-label="Share Relationship Intelligence" title="Share intelligence" data-tooltip="Share intelligence">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"></path></svg>
+      <span class="sr-only">Share Relationship Intelligence</span>
+    </button>
+    <button class="system-btn core-icon-action relationship-icon-action" id="refreshRelationshipsButton" onclick="systemReloadEmbeddedPage('relationships')" type="button" aria-label="Refresh Relationship Intelligence" title="Refresh intelligence" data-tooltip="Refresh intelligence">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0 2 5"></path><path d="M20 4v7h-7"></path></svg>
+      <span class="sr-only">Refresh Relationship Intelligence</span>
+    </button>
+  </div>
+</div>
+<div class="relationship-workspace-host">
+  <div class="embedded-page-loading" id="relationshipLoading">Loading Relationship Intelligence…</div>
+  <iframe class="embedded-page-frame" id="relationshipFrame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads" style="display:none" title="MRANTI Relationship Intelligence"></iframe>
+</div>
+</section>
+<section class="system-page" data-page="profile" id="pageProfile">
+<div class="system-page-toolbar"><div><h1>My Profile</h1><p>Your official identity is managed by Google Workspace. CORE preferences are managed here.</p></div></div>
+<div class="profile-layout">
+<section class="system-card profile-card profile-identity">
+<img alt="Profile photo" class="profile-avatar-large" id="profilePhoto" onerror="this.style.display='none';document.getElementById('profileInitial').style.display='flex'" src=""/>
+<div class="profile-avatar-fallback" id="profileInitial"></div>
+<div class="profile-name" id="profileName">MRANTI User</div>
+<div class="profile-email" id="profileEmail"></div>
+<div class="profile-managed-note">Your official name, email address and account photo are controlled by MRANTI Google Workspace. They are intentionally read-only in CORE.</div>
+<div class="profile-stats">
+<div class="profile-stat"><div class="profile-stat-value" id="profileUploadedCount">0</div><div class="profile-stat-label">Records uploaded</div></div>
+<div class="profile-stat"><div class="profile-stat-value" id="profileActionCount">0</div><div class="profile-stat-label">Open action items</div></div>
+<div class="profile-stat"><div class="profile-stat-value" id="profileArchivedCount">0</div><div class="profile-stat-label">Archived entries</div></div>
+<div class="profile-stat"><div class="profile-stat-value" id="profileLastActivity">—</div><div class="profile-stat-label">Last CORE activity</div></div>
+</div>
+</section>
+<section class="system-card settings-card">
+<div class="settings-section"><div class="settings-title">Workspace Preferences</div><div class="settings-copy">Personalise how CORE opens and how much information is displayed. These preferences are stored only in this browser.</div><div class="settings-grid">
+<div class="settings-field"><label>Default landing page</label><select class="system-select" id="profileDefaultPage"><option value="dashboard">Dashboard</option><option value="my-records">My Entries</option><option value="contacts">Context</option><option value="relationships">Relationship Intelligence</option></select></div>
+<div class="settings-field"><label>Display density</label><select class="system-select" id="profileDensity"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select></div>
+</div><div style="margin-top:14px;"><button class="system-btn primary" onclick="systemSavePreferences()">Save Preferences</button><span id="profilePreferenceStatus" style="margin-left:10px;color:#1d4ed8;font-size:10px;font-weight:800;"></span></div></div>
+<div class="settings-section"><div class="settings-title">Account Security</div><div class="settings-copy">Access is restricted to authorised <strong>@mranti.my</strong> Google Workspace accounts. Record changes are verified using your Firebase session and logged with your email address.</div></div>
+<div class="settings-section"><div class="settings-title">Calendar Connection</div><div class="settings-copy">Google Calendar access uses a short-lived Google token. When the token expires, use Sync Calendar to reconnect securely.</div><div style="margin-top:12px;"><button class="system-btn" onclick="systemNavigate('dashboard');setTimeout(syncCalendar,250)">Reconnect Calendar</button></div></div>
+</section>
+</div>
+</section>
+<section class="system-page" data-page="help" id="pageHelp">
+<div class="system-page-toolbar"><div><h1>Help &amp; Support</h1><p>Quick guidance for common MRANTI CORE tasks.</p></div></div>
+<div class="help-grid">
+<article class="system-card help-card"><div class="help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="16" rx="3" width="18" x="3" y="5"></rect><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M3 10h18"></path></svg></div><div class="help-title">Log a Meeting</div><div class="help-copy">Use one business-card photo, manual contacts, Calendar attachments and supporting PDFs. Review detected contacts before saving.</div><button class="system-btn" onclick="openManualModal()" style="margin-top:14px">Open Meeting Form</button></article>
+<article class="system-card help-card"><div class="help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4z"></path></svg></div><div class="help-title">Manage My Entries</div><div class="help-copy">Only the uploader may edit, archive or restore a record. My Entries automatically shows records uploaded using your signed-in email.</div><button class="system-btn" onclick="systemNavigate('my-records')" style="margin-top:14px">Open My Entries</button></article>
+<article class="system-card help-card"><div class="help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><div class="help-title">Need Technical Help?</div><div class="help-copy">Capture the error message, affected page and approximate time, then contact the Data Strategy team for support.</div><a class="system-btn" href="mailto:data@mranti.my?subject=MRANTI%20CORE%20Support" style="margin-top:14px">Email Data Strategy</a></article>
+</div>
+</section>
+</div>
+</main>
+</div>
+</div>
+</div>
+<div aria-labelledby="crmEditTitle" aria-modal="true" class="crm-edit-modal" id="crmEditModal" role="dialog">
+<div class="crm-edit-card">
+<h2 id="crmEditTitle" style="margin-top:0;">Edit My CORE Record</h2>
+<p style="color:#64748b;font-size:12px;line-height:1.5;">Only records uploaded using your signed-in MRANTI email can be modified. Every change is logged.</p>
+<div class="crm-contacts-banner error" id="crmEditError"></div>
+<div class="crm-edit-grid" id="crmEditFields"></div>
+<div class="crm-edit-actions"><button class="system-btn" onclick="crmCloseEditModal()" type="button">Cancel</button><button class="system-btn primary" id="crmSaveEditBtn" onclick="crmSaveRecordEdit()" type="button">Save Changes</button></div>
+</div>
+</div>
+<!-- MEETING MODAL -->
+<div class="modal-overlay" id="dayDetailModal">
+<div class="modal-card day-detail-card">
+<div class="modal-header">
+<div>
+<div class="modal-title" id="calDayDetailTitle">Meetings</div>
+<div class="modal-subtitle">Click a meeting to log contact details</div>
+</div>
+<button class="close-btn" onclick="closeDayDetail()">×</button>
+</div>
+<div class="events-list" id="calDayEvents"></div>
+</div>
+</div>
+<div class="modal-overlay" id="meetingModal">
+<div class="modal-card meeting-workspace-card">
+<!-- Success state -->
+<div class="modal-success" id="modalSuccess">
+<span class="s-icon"></span>
+<h3>Saved Successfully!</h3>
+<p id="modalSuccessMessage">Meeting details have been saved to CORE.</p>
+<button class="close-success-btn" onclick="finishSuccessAndClose()">Done</button>
+</div>
+<!-- Form state -->
+<div class="meeting-form-shell" id="modalForm">
+<div class="meeting-form-scroll">
+<div class="modal-header">
+<div>
+<div class="modal-title">Log Meeting Details</div>
+<div class="modal-subtitle" id="modalSubtitle">Fill in the details below</div>
+</div>
+<button aria-label="Close meeting form" class="close-btn" onclick="requestCloseMeetingModal()">×</button>
+</div>
+<div class="modal-error" id="modalError"></div>
+<div aria-live="polite" class="draft-status" id="draftStatus"></div>
+<div class="form-section-label">Meeting Info</div>
+<div class="form-group">
+<label class="form-label">Meeting Title</label>
+<input class="form-input prefilled" id="fieldEventTitle" placeholder="e.g. Partnership Discussion" type="text"/>
+</div>
+<div class="date-time-grid">
+<div class="form-group">
+<label class="form-label">Meeting Date</label>
+<input class="form-input prefilled" id="fieldEventDate" type="date"/>
+</div>
+<div class="form-group">
+<label class="form-label">Meeting Time</label>
+<input class="form-input prefilled" id="fieldEventTime" type="time"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Attendees</label>
+<input class="form-input prefilled" id="fieldAttendees" placeholder="e.g. alice@company.com, bob@company.com" type="text"/>
+</div>
+<div class="form-divider"></div>
+<div class="form-section-label">Contact Details</div>
+<div class="contact-method-grid">
+<label class="contact-method">
+<input checked="" id="methodBusinessCard" name="contactInputMethod" onchange="setContactInputMethod('businessCard')" type="radio" value="businessCard"/>
+<span>
+<span class="contact-method-title">Upload business card</span>
+<span class="contact-method-desc">Use OCR to extract contact details</span>
+</span>
+</label>
+<label class="contact-method">
+<input id="methodManual" name="contactInputMethod" onchange="setContactInputMethod('manual')" type="radio" value="manual"/>
+<span>
+<span class="contact-method-title">Enter manually</span>
+<span class="contact-method-desc">No business card required</span>
+</span>
+</label>
+</div>
+<div id="businessCardSection">
+<div class="form-group">
+<label class="form-label">Upload One Business-Card Photo <span class="req">*</span></label>
+<input accept="image/*,.pdf" class="form-input" id="fieldBusinessCard" onchange="handleBusinessCardChange()" type="file"/>
+</div>
+<p class="helper-text">Upload one photo or PDF containing one or several business cards. Analysis starts automatically, then every detected contact appears below for review before saving.</p>
+<div aria-live="polite" class="analysis-inline-state" id="businessCardAnalysisState"><span class="analysis-spinner"></span><span id="businessCardAnalysisMessage">Analyzing business cards...</span></div>
+<div class="business-card-review-state" id="businessCardReviewState">
+<div class="business-card-review-summary">
+<div class="business-card-review-title">Review Detected Contacts</div>
+<div class="business-card-review-count" id="businessCardReviewCount">0 contacts detected</div>
+</div>
+<div class="business-card-review-list" id="businessCardReviewList"></div>
+<div class="business-card-review-actions">
+<button class="business-card-review-btn" onclick="addBusinessCardReviewContact()" type="button">Add Missing Contact</button>
+<button class="business-card-review-btn" onclick="reanalyzeBusinessCards()" type="button">Re-analyze Photo</button>
+</div>
+</div>
+</div>
+<div class="hidden-section" id="manualContactSection">
+<div class="manual-contact-state">
+<div class="manual-contact-summary">
+<div class="manual-contact-title">Manual Contacts</div>
+<div class="manual-contact-count" id="manualContactCount">1 contact</div>
+</div>
+<div class="manual-contact-list" id="manualContactList"></div>
+<div class="manual-contact-actions">
+<button class="business-card-review-btn" onclick="addManualContact()" type="button">+ Add Another Contact</button>
+</div>
+</div>
+</div>
+<div class="form-divider"></div>
+<div class="form-section-label">Meeting Details</div>
+<div class="form-group">
+<label class="form-label">Purpose of Meeting <span class="req">*</span></label>
+<input class="form-input" id="fieldPurpose" placeholder="e.g. Partnership discussion, vendor intro" type="text"/>
+</div>
+<div class="form-group meeting-notes-ai-group">
+<div class="meeting-notes-ai-head">
+  <label class="form-label" for="fieldNotes">Meeting Notes <span class="req">*</span></label>
+  <div class="meeting-notes-ai-actions">
+    <button class="brain-dump-btn" id="brainDumpButton" onclick="runBrainDump()" type="button" title="Turn rough notes into management-ready notes">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2L12 3Z"></path><path d="m18 13 .8 2.2L21 16l-2.2.8L18 19l-.8-2.2L15 16l2.2-.8L18 13Z"></path></svg>
+      <span>Brain Dump</span>
+    </button>
+    <button class="brain-dump-undo" id="brainDumpUndoButton" onclick="undoBrainDump()" type="button" style="display:none;">Undo</button>
+  </div>
+</div>
+<textarea class="form-textarea" id="fieldNotes" oninput="handleMeetingNotesInput()" placeholder="Paste rough notes, shorthand or key discussion points..."></textarea>
+<p class="helper-text brain-dump-helper">Brain Dump converts messy notes into concise, professional meeting notes. CORE also classifies topic, sentiment and keywords when the meeting is saved.</p>
+<div class="meeting-intelligence-preview" id="meetingIntelligencePreview" style="display:none;" aria-live="polite">
+  <div class="meeting-intelligence-preview-title">CORE Intelligence</div>
+  <div class="meeting-intelligence-chips" id="meetingIntelligenceChips"></div>
+</div>
+<div class="analysis-inline-state meeting-intelligence-state" id="meetingIntelligenceState" style="display:none;"><span class="analysis-spinner"></span><span id="meetingIntelligenceMessage">Analysing meeting notes...</span></div>
+</div>
+<div class="form-group">
+<label class="form-label">Action Items <span class="optional-tag">Optional</span></label>
+<p class="helper-text">Add each follow-up as its own row. Owner and due date are optional.</p>
+<div class="meeting-action-builder-v2" id="meetingActionItemsBuilder" aria-live="polite"></div>
+<button class="meeting-action-add-v2" id="addMeetingActionItemBtn" onclick="addMeetingActionItem()" type="button">+ Add action item</button>
+</div>
+<div class="form-divider"></div>
+<div class="form-section-label">Meeting Documents</div>
+<div class="form-group" id="calendarAttachmentSection" style="display:none;">
+<label class="form-label">Calendar Attachments</label>
+<p class="helper-text">These files are linked from the selected Google Calendar event. They stay in their original Google Drive location and are not copied into the CORE folder.</p>
+<div class="calendar-attachment-state" id="calendarAttachmentState">
+<div class="calendar-attachment-summary">
+<div class="calendar-attachment-label">Linked from Calendar</div>
+<div class="calendar-attachment-count" id="calendarAttachmentCount">0 linked files</div>
+</div>
+<div class="calendar-attachment-list" id="calendarAttachmentList"></div>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Upload Additional PDFs <span class="optional-tag">Optional</span></label>
+<input accept="application/pdf,.pdf" class="form-input" id="fieldMeetingDocument" multiple="" onchange="handleMeetingDocumentChange()" type="file"/>
+<p class="helper-text">Attach up to 5 additional PDFs that are not already linked to the Calendar event. Maximum file size: 10 MB per PDF.</p>
+<div class="pdf-file-state" id="meetingDocumentState">
+<div class="pdf-file-summary">
+<div class="pdf-file-label">Selected PDFs</div>
+<div class="pdf-file-count" id="meetingDocumentCount">0 documents selected</div>
+</div>
+<div class="pdf-file-list" id="meetingDocumentList"></div>
+</div>
+</div>
+</div>
+<div class="meeting-submit-dock">
+<button class="submit-btn" id="submitBtn" onclick="submitMeeting()">Save Context to CORE</button>
+</div>
+</div>
+</div>
+</div>
+<!-- DRAFT CLOSE CONFIRMATION -->
+<div aria-labelledby="draftCloseTitle" aria-modal="true" class="modal-overlay draft-confirm-overlay" id="draftCloseModal" role="dialog">
+<div class="draft-confirm-card">
+<div class="draft-confirm-kicker">Unsaved meeting</div>
+<div class="draft-confirm-title" id="draftCloseTitle">Keep this meeting as a temporary draft?</div>
+<p class="draft-confirm-copy">Your entries are being saved temporarily in this browser tab. Choose what should happen before closing the form.</p>
+<div class="draft-confirm-note" id="draftFileNotice" style="display:none;">Selected business-card and supporting PDF files cannot be restored by the browser. The files will need to be selected again when the draft is reopened.</div>
+<div class="draft-confirm-actions">
+<button class="draft-action-btn draft-action-save" onclick="saveDraftAndClose()">Save Draft &amp; Close</button>
+<button class="draft-action-btn draft-action-discard" onclick="discardDraftAndClose()">Discard Changes</button>
+<button class="draft-action-btn draft-action-continue" onclick="continueEditingMeeting()">Continue Editing</button>
+</div>
+</div>
+</div>
+<script defer src="src/config.js"></script>
+<script defer src="src/search.js"></script>
+<script defer src="src/calendar.js"></script>
+<script defer src="src/crm.js"></script>
+<script defer src="src/contacts.js"></script>
+<script defer src="src/auth.js"></script>
+<div class="dashboard-inline-notice" id="dashboardInlineNotice" role="status" aria-live="polite"></div>
+</body>
+</html>
