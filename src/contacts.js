@@ -223,6 +223,13 @@
       return crmIntelActionEntries(record).map(item => item.action);
     }
 
+
+    function crmIsContactOnlyRecord(record) {
+      const id = String(record?.recordId || '').trim().toUpperCase();
+      if (id.startsWith('BCC-')) return true;
+      return Boolean(record?.contactOnly === true || crmNormalize(record?.recordSource || record?.source) === 'business card contact');
+    }
+
     function crmIntelDocumentsForRecord(record, recordIndex) {
       const documents = Array.isArray(record?.meetingDocuments) ? record.meetingDocuments : [];
       return documents.map((document, index) => ({
@@ -250,14 +257,16 @@
       crmContactGroups = Array.from(map.values()).map(group => {
         const allRecords = group.records.slice().sort((a, b) => crmIntelDateScore(b.record) - crmIntelDateScore(a.record));
         const activeRecords = allRecords.filter(entry => crmNormalize(crmStatus(entry.record)) !== 'archived');
+        const meetingRecords = activeRecords.filter(entry => !crmIsContactOnlyRecord(entry.record));
+        const contactOnlyRecords = activeRecords.filter(entry => crmIsContactOnlyRecord(entry.record));
         const identityRecords = allRecords.map(entry => entry.record);
         const activeOrdered = activeRecords.map(entry => entry.record);
         const identitySource = activeOrdered.length ? activeOrdered : identityRecords;
-        const latestEntry = activeRecords[0] || { record: {}, index: -1 };
+        const latestEntry = meetingRecords[0] || activeRecords[0] || { record: {}, index: -1 };
         const latest = latestEntry.record;
-        const documents = activeRecords.flatMap(entry => crmIntelDocumentsForRecord(entry.record, entry.index));
+        const documents = meetingRecords.flatMap(entry => crmIntelDocumentsForRecord(entry.record, entry.index));
         const actionSeen = new Set();
-        const actions = activeRecords.flatMap(entry => crmIntelActionEntries(entry.record, entry.index)).filter(item => {
+        const actions = meetingRecords.flatMap(entry => crmIntelActionEntries(entry.record, entry.index)).filter(item => {
           const stableId = String(item.actionItemId || '').trim();
           const key = stableId ? `id:${stableId}` : `record:${item.recordId || item.recordIndex}:${item.key || ''}`;
           if (!key || actionSeen.has(key)) return false;
@@ -272,7 +281,9 @@
           key: group.key,
           allRecords,
           activeRecords,
-          records: activeRecords,
+          meetingRecords,
+          contactOnlyRecords,
+          records: meetingRecords,
           latest,
           latestIndex: latestEntry.index,
           name: crmIntelRecordValue(identitySource, ['personName'], 'Unnamed contact'),
@@ -282,8 +293,8 @@
           jobTitle: crmIntelRecordValue(identitySource, ['jobTitle', 'position']),
           department: crmIntelRecordValue(identitySource, ['department', 'division']),
           location: crmIntelRecordValue(identitySource, ['contactLocation', 'city', 'country', 'location']),
-          latestTitle: activeRecords.length ? crmIntelText(latest.meetingTitle, 'No meeting title recorded') : 'No active meeting records',
-          latestDateScore: activeRecords.length ? crmIntelDateScore(latest) : 0,
+          latestTitle: meetingRecords.length ? crmIntelText(latest.meetingTitle, 'No meeting title recorded') : (contactOnlyRecords.length ? 'Business card contact' : 'No active meeting records'),
+          latestDateScore: meetingRecords.length ? crmIntelDateScore(latest) : 0,
           documents,
           actions,
           searchRecords
@@ -604,8 +615,9 @@
       document.getElementById('crmContactOrganisation').textContent = group.company;
       document.getElementById('crmContactRole').textContent = [group.jobTitle, group.department].filter(Boolean).join(' · ');
       document.getElementById('crmContactMeta').innerHTML = crmContactMetaMarkup(group);
-      document.getElementById('crmContactMeetingCount').textContent = `${group.records.length} meeting${group.records.length === 1 ? '' : 's'}`;
-      document.getElementById('crmContactLastEngaged').textContent = group.activeRecords.length ? `Last engaged ${crmIntelShortDate(group.latest)}` : 'Last engaged —';
+      const meetingCount = Array.isArray(group.meetingRecords) ? group.meetingRecords.length : group.records.length;
+      document.getElementById('crmContactMeetingCount').textContent = `${meetingCount} meeting${meetingCount === 1 ? '' : 's'}`;
+      document.getElementById('crmContactLastEngaged').textContent = meetingCount ? `Last engaged ${crmIntelShortDate(group.latest)}` : 'No meeting recorded yet';
     }
 
     function crmRenderContactTabs() {
@@ -760,7 +772,8 @@
     }
 
     function crmOverviewMarkup(group) {
-      if (!group.activeRecords.length) {
+      const meetingRecords = Array.isArray(group.meetingRecords) ? group.meetingRecords : group.activeRecords;
+      if (!meetingRecords.length) {
         return `<section class="contact-panel-card"><div class="contact-panel-title-row"><div><div class="contact-panel-title">No current relationship activity</div><div class="contact-panel-subtitle">This contact remains available, but all linked meeting records are archived.</div></div></div><div class="followup-empty">Restore a meeting from My Entries to include it again in current relationship activity.</div></section>`;
       }
       const latest = group.latest;
